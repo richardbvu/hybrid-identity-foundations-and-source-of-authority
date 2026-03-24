@@ -1,0 +1,28 @@
+Ticket:
+Change made in incorrect management location for a synced user in a hybrid identity environment.
+
+Impact:
+User attribute changes were attempted in Microsoft Entra but did not reflect expected behavior, creating confusion about where identity management should occur.
+
+Symptoms:
+- Synced user visible in both Active Directory and Entra
+- Attempted to modify user attributes in Entra
+- Behavior differed from cloud-only users
+- Changes did not align with expected management workflow
+
+Troubleshooting:
+- Reviewed the user in Microsoft Entra and attempted to manage attributes directly
+- Compared the synced user with a cloud-only user in Entra
+- Observed that the cloud-only user could be fully managed in Entra, while the synced user could not
+- Verified the synced user in Active Directory Users and Computers (ADUC)
+- Used PowerShell to confirm the user existed and was managed on-prem
+- Compared identity behavior between AD and Entra to determine management boundaries
+
+Resolution:
+Identified that the user was a synced identity with Active Directory as the source of authority. All changes were redirected to Active Directory, where the identity is managed, allowing updates to propagate correctly to Entra.
+
+User Follow-Up:
+Explained that synced users must be managed from Active Directory, while cloud-only users are managed in Entra. Clarified that attempting to manage synced users in the cloud can lead to inconsistent or unexpected results.
+
+Root Cause:
+The user was synchronized from on-prem Active Directory, but was incorrectly treated as a cloud-managed identity in Entra.
