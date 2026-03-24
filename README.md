@@ -14,6 +14,13 @@ The lab includes:
 
 This project was documented using an evidence-first workflow, including build validation, troubleshooting scenarios, tickets, and runbooks aligned to real IT support practices.
 
+## Start Here
+Recommended files and folders to review first:
+
+- [04-Ticket-Pack](./04-Ticket-Pack/)
+- [03-Runbook](./03-Runbook/)
+- [06-Resume-and-Interview](./06-Resume-and-Interview/)
+
 ## Skills Demonstrated
 - Hybrid identity fundamentals (Active Directory + Microsoft Entra ID)
 - Source of authority identification for synced and cloud-managed identities
@@ -24,17 +31,10 @@ This project was documented using an evidence-first workflow, including build va
 - Structured troubleshooting and documentation practices
 
 ## Project Structure
-- **00-Project-Summary** — overview and navigation
-- **01-Build-Evidence** — identity validation and hybrid concept proof
-- **02-Troubleshooting-Evidence** — raw notes, screenshots, and observations
-- **03-Runbook** — reusable hybrid identity troubleshooting procedures
-- **04-Ticket-Pack** — polished ticket write-ups
-- **05-PowerShell** — command outputs and validation artifacts
-- **06-Resume-and-Interview** — project packaging for job search
-
-## Start Here
-Recommended files and folders to review first:
-
-- **04-Ticket-Pack**
-- **03-Runbook**
-- **06-Resume-and-Interview**
+- [00-Project-Summary](./00-Project-Summary/) — overview and navigation  
+- [01-Build-Evidence](./01-Build-Evidence/) — identity validation and hybrid concept proof  
+- [02-Troubleshooting-Evidence](./02-Troubleshooting-Evidence/) — raw notes, screenshots, and observations  
+- [03-Runbook](./03-Runbook/) — reusable hybrid identity troubleshooting procedures  
+- [04-Ticket-Pack](./04-Ticket-Pack/) — polished ticket write-ups  
+- [05-PowerShell](./05-PowerShell/) — command outputs and validation artifacts  
+- [06-Resume-and-Interview](./06-Resume-and-Interview/) — project packaging for job search  
