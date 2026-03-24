@@ -1,0 +1,11 @@
+I worked on a hybrid identity scenario where a synced user existed in both on-prem Active Directory and Microsoft Entra. While reviewing the user in Entra, I initially approached it the same way as a cloud-only account and attempted to manage attributes directly from the cloud side.
+
+At that point, I realized that the behavior was different from what I saw with a cloud-only user. To validate this, I compared the synced user with a cloud-only user in Entra. The cloud-only user could be managed directly in Entra, but the synced user followed a different management path. This made it clear that not all identities in Entra are controlled from the same place.
+
+I then verified the user in Active Directory Users and Computers and used the Get-ADUser cmdlet to confirm the identity details on the on-prem side. That confirmed that the user originated from Active Directory and was simply being represented in Entra, not managed there.
+
+The key realization was understanding source of authority. The synced user was on-prem authoritative, meaning changes needed to be made in Active Directory and then reflected in Entra. The cloud-only user, on the other hand, was Entra-authoritative and could be managed directly in the cloud.
+
+This scenario helped reinforce an important troubleshooting pattern: when working in hybrid environments, the first step is to determine where the object is actually managed. Making changes in the wrong system doesn’t necessarily break anything immediately, but it leads to incorrect expectations and inconsistent results.
+
+In a real support situation, this kind of misunderstanding could lead to failed changes, confusion during identity management, or repeated tickets. The correct approach is to identify the source of authority first, then perform changes in the correct system so they propagate properly.

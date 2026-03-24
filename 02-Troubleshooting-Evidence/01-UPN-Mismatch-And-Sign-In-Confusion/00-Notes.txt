@@ -1,0 +1,14 @@
+Issue:
+The user’s on-prem UPN and Entra UPN do not match.
+
+UPN's:
+AD UPN: psandoval@corp.test
+Entra UPN: psandoval@vurichard420spam2outlook.onmicrosoft.com
+
+Impact:
+This can create confusion during sign-in because the user may expect the on-prem identity to work in the cloud, while Entra shows a different sign-in suffix.
+
+Initial Interpretation:
+This is not a system failure by itself. The mismatch exists because the AD domain and Entra tenant domain are different.
+This creates a realistic hybrid identity support issue because users may not know which UPN should be used for cloud sign-in. 
+In real environments, this is often resolved by adding and aligning a custom domain.

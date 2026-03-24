@@ -1,0 +1,3 @@
+Built and validated a hybrid identity lab integrating Active Directory and Microsoft Entra ID, identifying correct source-of-authority for synced and cloud-managed identities, verifying identity consistency across on-prem and cloud environments, troubleshooting UPN-related sign-in inconsistencies, and documenting outcomes through structured tickets and runbooks.
+
+Developed and documented hybrid identity troubleshooting workflows by analyzing user and device identity behavior across Active Directory and Microsoft Entra ID, determining identity type (synced vs cloud-only), validating device join states, and translating findings into reusable runbooks and structured support scenarios.

@@ -1,0 +1,48 @@
+HYBRID IDENTITY CONCEPT EXPLANATION
+
+Hybrid identity is when an organization uses both:
+- On-prem Active Directory (corp.test)
+- Microsoft Entra ID (cloud identity)
+
+Users exist in both environments through synchronization.
+
+KEY POINTS:
+
+1. Source of Authority
+- On-prem AD is the source of truth for synced users
+- Changes should be made on-prem, not in Entra
+
+2. Identity Sync
+- Users and groups are synced from AD → Entra
+- Entra contains a cloud representation of those objects
+
+3. Device State
+- DomainJoined = On-prem AD
+- AzureAdJoined = Entra ID
+
+If BOTH = YES then Hybrid Joined device
+
+4. UPN
+- UPN = full login (user@domain)
+- Example: psandoval@corp.test
+
+5. Domain vs Tenant
+- Domain (corp.test) = on-prem identity namespace
+- Tenant (onmicrosoft.com) = cloud identity namespace
+- These can be different
+
+REAL-WORLD NOTE:
+Different naming between domain and tenant is common in:
+- migrations
+- acquisitions
+- older environments
+
+Device identity state for workstation W11VM was validated earlier using dsregcmd /status in the Device-Identity-And-Join-State subsection.
+
+Hybrid identity synchronization is commonly associated with Microsoft Entra Connect Sync.
+
+Cloud-to-on-prem scenarios do exist, but they are not the default foundation model.
+Examples include:
+- password writeback
+- group writeback / provisioning to AD DS
+- supported Source of Authority transfer scenarios

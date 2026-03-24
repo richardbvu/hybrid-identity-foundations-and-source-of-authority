@@ -1,0 +1,21 @@
+Project Folder Guide
+
+This project is organized using an evidence-first structure to clearly separate build validation, troubleshooting evidence, and documentation.
+
+00-Project-Summary
+Overview documents describing the project, its purpose, and the skills demonstrated.
+
+01-Build-Evidence
+Evidence confirming that the environment was built correctly and functioning in a healthy state.
+
+02-Troubleshooting-Evidence
+Raw notes, screenshots, and command outputs collected while diagnosing troubleshooting scenarios.
+
+03-Runbook
+Procedural documentation describing how specific issues can be diagnosed and resolved.
+
+04-Ticket-Pack
+Polished ticket-style documentation describing each troubleshooting scenario, including symptoms, investigation steps, and resolution.
+
+05-Resume-and-Interview
+Condensed project descriptions and troubleshooting stories prepared for resume and interview preparation.

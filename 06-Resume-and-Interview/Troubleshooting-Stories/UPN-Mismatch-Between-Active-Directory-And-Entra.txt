@@ -1,0 +1,9 @@
+I ran into a hybrid identity scenario where the same synced user showed different sign-in identities between on-prem Active Directory and Microsoft Entra. On the Active Directory side, the user principal name was set as psandoval@corp.test. In Entra, the same user appeared with the tenant’s default onmicrosoft.com suffix instead.
+
+At first glance, this looked like it could be a broken sign-in issue, but after comparing both sides carefully, I confirmed it was really an identity consistency problem rather than a service failure. The on-prem lab domain and the Entra tenant domain had been created separately, so the naming difference was expected in this environment. The real support issue was that a user could easily get confused about which sign-in name should be used in the cloud.
+
+To validate it, I checked the user in Active Directory Users and Computers, reviewed the same synced user in Entra, and used Get-ADUser to confirm the on-prem UPN directly. That gave me clear proof that the mismatch was real and not just a display issue. It also reinforced the difference between the on-prem identity namespace and the cloud tenant namespace.
+
+What made this useful was that it turned into a realistic troubleshooting story. I was able to explain that the environment was not broken, but the mismatch could still create login confusion and support tickets. I also connected it to the real-world fix direction: in production, organizations usually add a custom domain and align UPNs so users have a consistent sign-in experience across on-prem and cloud systems.
+
+This was a good example of hybrid identity troubleshooting because sometimes the job is recognizing that the system is technically working, identifying why the user experience is confusing, and explaining the root cause clearly.

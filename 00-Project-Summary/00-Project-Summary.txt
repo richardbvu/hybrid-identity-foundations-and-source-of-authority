@@ -1,0 +1,17 @@
+# Project Summary
+
+## Hybrid Identity Foundations and Source of Authority
+
+This project demonstrates a foundational hybrid identity lab integrating on-prem Active Directory with Microsoft Entra ID. The focus was on understanding how identities exist across both environments, how they are managed, and how to troubleshoot common hybrid identity scenarios.
+
+The lab environment used a local Active Directory domain (corp.test) connected to an Entra tenant using the default onmicrosoft.com domain. This allowed for direct comparison between on-prem and cloud identity representations.
+
+The project explored how synced users appear in Entra while remaining managed on-prem, and how cloud-only users differ in behavior and management. This led to a deeper understanding of source of authority and how it determines where identity changes must be made.
+
+Identity consistency was validated by comparing user attributes across Active Directory and Entra, including differences in User Principal Name (UPN) formats. These differences were used to simulate realistic sign-in confusion scenarios and develop troubleshooting approaches.
+
+The project also included device identity validation using a domain-joined workstation (W11VM). Device state was verified using command-line tools to determine whether the system was on-prem joined, Entra joined, or part of a hybrid configuration.
+
+Throughout the project, findings were documented using an evidence-first workflow. This included build evidence, troubleshooting evidence, structured tickets, and reusable runbooks focused on hybrid identity troubleshooting.
+
+Overall, this project demonstrates the ability to understand hybrid identity behavior, validate identity across systems, and troubleshoot issues related to identity consistency and management boundaries.

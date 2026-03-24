@@ -1,0 +1,67 @@
+# Hybrid Identity User Troubleshooting
+
+## Purpose
+Use this runbook to troubleshoot user identity issues in a hybrid environment involving on-prem Active Directory and Microsoft Entra ID.
+
+## Scope
+Synced and cloud-only users in a hybrid identity lab environment.
+
+## Common Symptoms
+- User unable to sign in as expected
+- UPN mismatch between AD and Entra
+- Confusion about where to manage user attributes
+- Identity appears inconsistent across systems
+
+## Quick Rule
+Always determine:
+- if the user is synced or cloud-only
+- where the source of authority is
+
+Do not assume all users are managed in Entra.
+
+## Troubleshooting Steps
+
+### 1. Identify the user in both systems
+Check:
+- Active Directory Users and Computers (ADUC)
+- Microsoft Entra Admin Center
+
+Confirm the user exists in one or both locations.
+
+### 2. Determine identity type
+- If user exists in AD and Entra → synced user
+- If user exists only in Entra → cloud-only user
+
+### 3. Check UPN values
+Compare:
+- AD UPN (e.g., user@corp.test)
+- Entra UPN (e.g., user@onmicrosoft.com)
+
+Identify mismatches.
+
+### 4. Determine source of authority
+- Synced user → source of authority = on-prem AD
+- Cloud-only user → source of authority = Entra
+
+### 5. Validate correct management location
+- Synced users must be managed in AD
+- Cloud-only users are managed in Entra
+
+### 6. Confirm findings
+Use:
+- ADUC or Get-ADUser cmdlet
+- Entra user view
+
+Ensure both sides align with your conclusion
+
+## Key Notes
+- UPN is the user’s full sign-in identity (user@domain)
+- AzureAdJoined refers to Microsoft Entra ID
+- Synced users are not cloud-authoritative
+- Incorrect assumptions about source of authority lead to common support issues
+
+## Environment Example
+Validated using workstation W11VM in a hybrid lab with on-prem domain corp.test and an Entra tenant using the default onmicrosoft.com domain.
+
+## Support Context
+Commonly used when troubleshooting sign-in issues, device access problems, or identity inconsistencies in hybrid environments.

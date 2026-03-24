@@ -1,0 +1,78 @@
+# Device Identity State Troubleshooting
+
+## Purpose
+Use this runbook to verify and interpret the identity state of a Windows workstation in environments using on-prem Active Directory and Microsoft Entra ID.
+
+## Scope
+Windows domain-joined lab systems (e.g., W11VM) in a hybrid identity environment.
+
+## Common Symptoms
+- Uncertainty about whether a device is domain joined, Entra joined, or hybrid joined
+- Device not behaving as expected during sign-in or access scenarios
+- Need to confirm device identity state during troubleshooting
+
+## Quick Rule
+Always check BOTH:
+- DomainJoined
+- AzureAdJoined
+
+Do not assume device state from UI or login behavior alone.
+
+## Troubleshooting Steps
+
+### 1. Run device identity command
+Open Command Prompt or PowerShell and run:
+
+dsregcmd /status
+
+### 2. Locate Device State section
+Scroll through the output and find:
+
+- DomainJoined
+- AzureAdJoined
+
+### 3. Record values
+Note the values exactly as shown:
+
+- DomainJoined: YES/NO
+- AzureAdJoined: YES/NO
+
+### 4. Interpret device state
+
+Use the following logic:
+
+- DomainJoined = YES  
+  = Device is joined to on-prem Active Directory
+
+- AzureAdJoined = YES  
+  = Device is joined to Microsoft Entra ID
+
+Combine both values:
+
+- YES / NO = On-prem domain joined only
+- NO / YES = Entra joined (cloud-only device)
+- YES / YES = Hybrid joined device
+
+### 5. Validate against expectation
+Compare the actual device state to what is expected in the environment.
+
+- If values match expectation → no issue
+- If values do not match → further investigation required
+
+### 6. Document findings
+Record:
+- Command used
+- Output values
+- Final interpretation of device state
+
+## Key Notes
+- AzureAdJoined refers to Microsoft Entra ID (formerly Azure Active Directory)
+- DomainJoined refers to on-prem Active Directory
+- Hybrid state is not explicitly labeled; it is derived from both values
+- dsregcmd /status is the most reliable way to confirm device identity state
+
+## Environment Example
+Validated using workstation W11VM in a hybrid lab with on-prem domain corp.test and an Entra tenant using the default onmicrosoft.com domain.
+
+## Support Context
+Commonly used when troubleshooting sign-in issues, device access problems, or identity inconsistencies in hybrid environments.

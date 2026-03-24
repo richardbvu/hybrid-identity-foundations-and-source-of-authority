@@ -1,0 +1,7 @@
+While working through the hybrid identity lab, I noticed that the on-prem Active Directory domain and the Microsoft Entra tenant domain were different. The AD environment used the corp.test domain, while Entra used the default onmicrosoft.com domain created during tenant setup.
+
+At first, this seemed confusing because both environments were connected, but the user identities did not use the same domain format. This became more noticeable when comparing user UPNs between AD and Entra.
+
+To understand it better, I reviewed how the tenant was created and how identities are represented in both systems. I realized that the Entra tenant domain is tied to how the tenant is registered, while the AD domain is defined separately in the on-prem environment.
+
+This helped me understand that hybrid identity does not require matching domain names, but differences between them can impact user identity representation and sign-in expectations. It also reinforced why organizations often align domains in production to avoid confusion.

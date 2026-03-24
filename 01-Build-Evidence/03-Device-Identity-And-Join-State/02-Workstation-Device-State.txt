@@ -1,0 +1,129 @@
+Command:
+dsregcmd /status
+
+Purpose:
+Used to verify the device registration and join state of a Windows workstation. This command provides details such as DomainJoined and AzureAdJoined status, allowing you to determine whether the device is on-prem only, Entra joined, or part of a hybrid identity configuration.
+
+Output:
++----------------------------------------------------------------------+
+| Device State                                                         |
++----------------------------------------------------------------------+
+
+             AzureAdJoined : YES
+          EnterpriseJoined : NO
+              DomainJoined : YES
+                DomainName : CORP
+           Virtual Desktop : NOT SET
+               Device Name : W11VM.corp.test
+
++----------------------------------------------------------------------+
+| Device Details                                                       |
++----------------------------------------------------------------------+
+
+                  DeviceId : d8586067-c8c7-4d8d-9ca1-da3d261bf248
+                Thumbprint : 33080ACC35A04B393979F24D537C1D70337773FC
+ DeviceCertificateValidity : [ 2026-03-01 06:04:01.000 UTC -- 2036-02-29 06:34:01.000 UTC ]
+            KeyContainerId : f933c81e-9887-4e68-9598-a915022f74f2
+               KeyProvider : Microsoft Platform Crypto Provider
+              TpmProtected : YES
+          DeviceAuthStatus : SUCCESS
+
++----------------------------------------------------------------------+
+| Tenant Details                                                       |
++----------------------------------------------------------------------+
+
+                TenantName :
+                  TenantId : 98a58ea5-0948-4ea8-9aa7-28dc1194329b
+               AuthCodeUrl : https://login.microsoftonline.com/98a58ea5-0948-4ea8-9aa7-28dc1194329b/oauth2/authorize
+            AccessTokenUrl : https://login.microsoftonline.com/98a58ea5-0948-4ea8-9aa7-28dc1194329b/oauth2/token
+                    MdmUrl :
+                 MdmTouUrl :
+          MdmComplianceUrl :
+               SettingsUrl :
+            JoinSrvVersion : 3.0
+                JoinSrvUrl : https://enterpriseregistration.windows.net/EnrollmentServer/device/
+                 JoinSrvId : urn:ms-drs:enterpriseregistration.windows.net
+             KeySrvVersion : 1.0
+                 KeySrvUrl : https://enterpriseregistration.windows.net/EnrollmentServer/key/
+                  KeySrvId : urn:ms-drs:enterpriseregistration.windows.net
+        WebAuthNSrvVersion : 1.0
+            WebAuthNSrvUrl : https://enterpriseregistration.windows.net/webauthn/98a58ea5-0948-4ea8-9aa7-28dc1194329b/
+             WebAuthNSrvId : urn:ms-drs:enterpriseregistration.windows.net
+    DeviceManagementSrvVer : 1.0
+    DeviceManagementSrvUrl : https://enterpriseregistration.windows.net/manage/98a58ea5-0948-4ea8-9aa7-28dc1194329b/
+     DeviceManagementSrvId : urn:ms-drs:enterpriseregistration.windows.net
+                   KerbSpn : adrs/enterpriseregistration.windows.net
+                   KerbUrl : https://login.microsoftonline.com/98a58ea5-0948-4ea8-9aa7-28dc1194329b/kerberos
+
++----------------------------------------------------------------------+
+| User State                                                           |
++----------------------------------------------------------------------+
+
+                    NgcSet : NO
+           WorkplaceJoined : NO
+             WamDefaultSet : NO
+
++----------------------------------------------------------------------+
+| SSO State                                                            |
++----------------------------------------------------------------------+
+
+                AzureAdPrt : NO
+       AzureAdPrtAuthority :
+     AcquirePrtDiagnostics : PRESENT
+      Previous Prt Attempt : 2026-03-20 16:11:41.452 UTC
+            Attempt Status : 0xc00000d0
+             User Identity : psandoval@corp.test
+           Credential Type : Password
+            Correlation ID : bf76c70a-8d32-4285-8b77-7d939272363b
+              Endpoint URI : https://login.microsoftonline.com/98a58ea5-0948-4ea8-9aa7-28dc1194329b/oauth2/token
+               HTTP Method : POST
+                HTTP Error : 0x0
+               HTTP status : 400
+         Server Error Code : invalid_request
+  Server Error Description : AADSTS90002: Tenant 'corp.test' not found. Check to make sure you have the correct tenant ID and are signing into the correct cloud. Check with your subscription administrator, this may happen if there are no active subscriptions for the tenant. Trace ID: de4fafc4-8cc4-4a82-a0d7-a82004fc3c00 Correlation ID: bf76c70a-8d32-4285-8b77-7d939272363b Timestamp: 2026-03-20 16:11:43Z
+             EnterprisePrt : NO
+    EnterprisePrtAuthority :
+
++----------------------------------------------------------------------+
+| Diagnostic Data                                                      |
++----------------------------------------------------------------------+
+
+        AadRecoveryEnabled : NO
+    Executing Account Name : CORP\psandoval, psandoval@corp.test
+               KeySignTest : PASSED
+
+        DisplayNameUpdated : YES
+          OsVersionUpdated : YES
+           HostNameUpdated : YES
+
+      Last HostName Update : NONE
+
++----------------------------------------------------------------------+
+| IE Proxy Config for Current User                                     |
++----------------------------------------------------------------------+
+
+      Auto Detect Settings : YES
+    Auto-Configuration URL :
+         Proxy Server List :
+         Proxy Bypass List :
+
++----------------------------------------------------------------------+
+| WinHttp Default Proxy Config                                         |
++----------------------------------------------------------------------+
+
+               Access Type : DIRECT
+
++----------------------------------------------------------------------+
+| Ngc Prerequisite Check                                               |
++----------------------------------------------------------------------+
+
+            IsDeviceJoined : YES
+             IsUserAzureAD : NO
+             PolicyEnabled : NO
+          PostLogonEnabled : YES
+            DeviceEligible : NO
+        SessionIsNotRemote : NO
+            CertEnrollment : none
+              PreReqResult : WillNotProvision
+
+For more information, please visit https://www.microsoft.com/aadjerrors

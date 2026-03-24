@@ -1,0 +1,28 @@
+Ticket:
+UPN mismatch created sign-in confusion between on-prem AD and Microsoft Entra identity.
+
+Impact:
+The user identity appeared differently between the on-prem environment and the Entra tenant, creating confusion about which username should be used for cloud sign-in.
+
+Symptoms:
+- The synced user showed one UPN in Active Directory Users and Computers
+- The same user showed a different UPN in Microsoft Entra
+- The user could reasonably expect the on-prem UPN to be the cloud sign-in identity
+- Identity naming appeared inconsistent across environments
+
+Troubleshooting:
+- Reviewed the synced user in Active Directory Users and Computers
+- Confirmed the on-prem UPN was psandoval@corp.test
+- Reviewed the same user in Microsoft Entra
+- Confirmed the cloud-side UPN was psandoval@vurichard420spam2outlook.onmicrosoft.com
+- Ran "Get-ADUser psandoval" to validate the on-prem identity
+- Compared the AD and Entra identity values to determine whether the sign-in name matched across environments
+
+Resolution:
+Confirmed that this was not a system failure, but a UPN mismatch caused by the lab using a separate on-prem domain (corp.test) and the tenant using the default onmicrosoft.com domain. Documented the difference and identified it as a hybrid identity support issue that can lead to user sign-in confusion.
+
+
+On-prem domain name and the Entra tenant domain do not have to match. Organizations usually add a custom domain and align UPNs to provide a consistent sign-in experience.
+
+Root Cause:
+The on-prem AD domain and the Entra tenant domain were created separately, resulting in different UPN suffixes for the same synced user.

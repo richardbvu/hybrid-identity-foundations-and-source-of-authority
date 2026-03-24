@@ -1,0 +1,11 @@
+Issue Summary:
+A synced user was managed in the wrong system (Entra instead of on-prem AD).
+
+Observation:
+The user exists in both AD and Entra, but is sourced from on-prem AD.
+
+Impact:
+Managing synced users in the wrong location can lead to incorrect expectations, failed changes, or overwritten values.
+
+Initial Interpretation:
+This is a source of authority issue. The user is synced from on-prem AD, so changes should be made in ADUC rather than Entra.

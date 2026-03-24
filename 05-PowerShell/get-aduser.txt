@@ -1,0 +1,17 @@
+Command:
+Get-ADUser psandoval
+
+Purpose:
+Used to confirm the on-prem Active Directory UPN and display name for the synced user.
+
+Output:
+DistinguishedName : CN=Priya Sandoval,OU=Corp Users,OU=CORP1,DC=corp,DC=test
+Enabled           : True
+GivenName         : Priya
+Name              : Priya Sandoval
+ObjectClass       : user
+ObjectGUID        : 2572505b-2315-4610-a697-452d657a0bd7
+SamAccountName    : psandoval
+SID               : S-1-5-21-870862040-1620156008-3855394555-1125
+Surname           : Sandoval
+UserPrincipalName : psandoval@corp.test

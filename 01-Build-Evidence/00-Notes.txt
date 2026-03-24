@@ -1,0 +1,76 @@
+[2026-03-20]
+Source of Authority
+
+Synced User
+Object Name: Priya Sandoval
+Object Type: User
+Sync State: Synced
+Source of Authority: On-prem AD
+Where Changes Are Made: ADUC / on-prem AD
+
+Cloud-Only User
+Object Name: Dan Toro
+Object Type: User
+Sync State: Cloud-Only
+Source of Authority: Entra ID
+Where Changes Are Made: Entra admin center
+
+Synced Group
+Object Name: GG-Workstation-Users
+Object Type: Group
+Sync State: Synced
+Source of Authority: On-prem AD
+Where Changes Are Made: ADUC / on-prem AD
+
+Workstation
+Object Name: W11VM
+Object Type: Workstation
+Where Changes Are Confirmed: dsregcmd /status
+
+
+[2026-03-20]
+UPN And Object Matching
+
+Reference User
+Object Name: Priya Sandoval
+Object Type: User
+
+AD Identity
+User Principal Name: psandoval@corp.test
+Display Name: Priya Sandoval
+
+Entra Identity
+User Principal Name: psandoval@vurichard420spam2outlook.onmicrosoft.com
+Display Name: Priya Sandoval
+
+Comparison
+UPN Match Status: Does Not Match
+Observed Difference: AD UPN uses corp.test domain, while Entra UPN uses onmicrosoft.com tenant domain
+Why This Matters: UPN differences can affect user sign-in experience and identity consistency. In hybrid environments, mismatched UPNs can lead to confusion or authentication issues if users expect to sign in with their on-prem identity.
+In real environments, organizations typically align user sign-in identities using a custom domain to avoid confusion and authentication issues.
+
+[2026-03-20]
+Device Identity And Join State
+
+Validate workstation identity state using dsregcmd /status on W11VM.
+
+Result:
+- DomainJoined: YES (confirms on-prem Active Directory join)
+- AzureAdJoined: YES (confirms Entra ID (cloud) join)
+- Synced enabled (Both values used together to determine device identity state)
+
+This demonstrates how to verify whether a device is on-prem only, Entra joined, or part of a hybrid identity configuration.
+
+
+[2026-03-20]
+Hybrid Identity Concept
+
+Demonstrates a basic hybrid identity model using an on-prem Active Directory lab and a connected Microsoft Entra tenant.
+
+The on-prem environment uses the corp.test domain and contains the synced user and synced group. These objects are treated as on-prem authoritative, meaning changes should be made in Active Directory rather than directly in Entra.
+
+The Entra side contains the cloud identity view of synced objects as well as a separate cloud-only user. This helps show the difference between synced identities and cloud-native identities.
+
+The workstation CL1 was used to check device identity state with dsregcmd /status. This helped confirm whether the machine was only domain joined, Entra joined, or part of a hybrid-style configuration.
+
+The lab also showed a UPN difference between the on-prem identity and the Entra tenant identity. The synced user used the corp.test UPN on the AD side, while Entra showed the tenant’s onmicrosoft.com domain. This is useful for understanding sign-in identity differences, source of authority, and future troubleshooting scenarios in hybrid environments.

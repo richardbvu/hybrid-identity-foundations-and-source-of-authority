@@ -1,0 +1,1 @@
+This folder contains interview-ready summaries of troubleshooting scenarios encountered while building the lab environment.

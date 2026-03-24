@@ -1,0 +1,29 @@
+==================== HYBRID IDENTITY CONCEPT ====================================
+
+        ON-PREM ACTIVE DIRECTORY               MICROSOFT ENTRA ID
+                (corp.test)                  (vu...onmicrosoft.com)
+        ---------------------------         ---------------------------
+        |                         |         |                         |
+        |   Domain Controller     |         |    Cloud Directory      |
+        |         (DC1)           |         |    (Entra ID Tenant)    |
+        |                         |         |                         |
+        |   Users & Groups        |-------->|   Synced Users          |
+        |   (Source of Authority) |  SYNC   |   (Cloud Representation)|
+        |                         |         |                         |
+        ---------------------------         ---------------------------
+
+                    |                                   |
+                    |                                   |
+                    v                                   v
+
+            DOMAIN-JOINED DEVICE                CLOUD / ENTRA ACCESS
+                 (CL1)                              (M365 / Apps)
+            ------------------                -----------------------
+            |                |                |                     |
+            |   Workstation  |                |   Cloud Services    |
+            |     (CL1)      |                |   (M365, Azure)     |
+            |                |                |                     |
+            ------------------                -----------------------
+
+==================================================================================
+
