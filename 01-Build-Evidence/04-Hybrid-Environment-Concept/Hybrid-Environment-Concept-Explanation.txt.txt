@@ -1,0 +1,45 @@
+HYBRID ENVIRONMENT CONCEPT EXPLANATION
+
+A hybrid environment combines on-prem Active Directory with Microsoft Entra ID, allowing user accounts and devices to exist across both systems.
+
+In this model, objects from Active Directory are synchronized to Entra, creating a cloud representation while maintaining management on-prem.
+
+KEY CONCEPTS:
+
+1. Management Boundary (Source of Authority)
+- On-prem Active Directory is the management source for synchronized users
+- Changes must be made on-prem and then propagate to Entra
+- Cloud-only users are managed directly in Entra
+
+2. Synchronization Behavior
+- Users and groups are synchronized from Active Directory to Entra
+- Entra contains a cloud representation of these objects, not the primary management source
+- This model ensures consistency between on-prem and cloud environments
+
+3. Device State
+- DomainJoined = device is joined to on-prem Active Directory
+- AzureAdJoined = device is joined to Microsoft Entra ID
+
+If both values are YES, the device is operating in a hybrid configuration
+
+4. User Principal Name (UPN)
+- UPN represents the user sign-in format (user@domain)
+- Example: psandoval@corp.test
+- Differences between on-prem and cloud UPN formats can impact sign-in behavior
+
+5. Domain vs Tenant
+- Domain (corp.test) = on-prem identity namespace
+- Tenant (onmicrosoft.com) = cloud identity namespace
+- These values do not need to match and often differ in real environments
+
+REAL-WORLD CONTEXT:
+Differences between domain and tenant naming are common in:
+- migrations
+- acquisitions
+- legacy environments
+
+Device state for workstation W11VM was validated using dsregcmd /status in the Device-Identity-And-Join-State section.
+
+Synchronization between Active Directory and Entra is commonly handled by Microsoft Entra Connect Sync.
+
+While cloud-to-on-prem scenarios exist (such as password writeback and group provisioning), the default model is on-prem to cloud synchronization.

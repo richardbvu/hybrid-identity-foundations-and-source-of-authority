@@ -1,0 +1,7 @@
+I worked on validating device state in the hybrid environment using a workstation named W11VM. Instead of assuming the device state based on login behavior, I used the dsregcmd /status command to check how the device was actually registered.
+
+From the output, I focused on the DomainJoined and AzureAdJoined values. In my case, both were set to YES, which indicated that the device was joined to both on-prem Active Directory and Microsoft Entra. That confirmed it was a hybrid-joined device.
+
+This was important because there isn’t a clear UI that shows this state directly, so you have to rely on command-line validation. It helped me understand that device state, like user accounts, has to be verified rather than assumed.
+
+This experience gave me a clear process for checking device state and reinforced how hybrid environments apply not just to users, but also to endpoints.

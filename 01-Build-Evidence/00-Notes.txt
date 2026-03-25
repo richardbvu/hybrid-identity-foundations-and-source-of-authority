@@ -63,14 +63,14 @@ This demonstrates how to verify whether a device is on-prem only, Entra joined, 
 
 
 [2026-03-20]
-Hybrid Identity Concept
+Hybrid Environment Concept
 
-Demonstrates a basic hybrid identity model using an on-prem Active Directory lab and a connected Microsoft Entra tenant.
+Demonstrates a basic hybrid environment model using an on-prem Active Directory lab and a connected Microsoft Entra tenant.
 
 The on-prem environment uses the corp.test domain and contains the synced user and synced group. These objects are treated as on-prem authoritative, meaning changes should be made in Active Directory rather than directly in Entra.
 
-The Entra side contains the cloud identity view of synced objects as well as a separate cloud-only user. This helps show the difference between synced identities and cloud-native identities.
+The Entra side contains the cloud representation of synced objects as well as a separate cloud-only user. This helps show the difference between synced identities and cloud-only identities.
 
-The workstation CL1 was used to check device identity state with dsregcmd /status. This helped confirm whether the machine was only domain joined, Entra joined, or part of a hybrid-style configuration.
+The workstation W11VM was used to check device identity state with dsregcmd /status. This helped confirm whether the machine was only domain joined, Entra joined, or operating in a hybrid configuration.
 
-The lab also showed a UPN difference between the on-prem identity and the Entra tenant identity. The synced user used the corp.test UPN on the AD side, while Entra showed the tenant’s onmicrosoft.com domain. This is useful for understanding sign-in identity differences, source of authority, and future troubleshooting scenarios in hybrid environments.
+The lab also showed a UPN difference between the on-prem environment and the Entra tenant. The synced user used the corp.test UPN on the AD side, while Entra showed the tenant’s onmicrosoft.com domain. This is useful for understanding sign-in differences, management boundaries (source of authority), and future troubleshooting scenarios in hybrid environments.

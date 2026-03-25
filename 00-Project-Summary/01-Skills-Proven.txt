@@ -1,38 +1,38 @@
 # Skills Proven
 
-## Hybrid Identity Fundamentals
-- Demonstrated understanding of hybrid identity using on-prem Active Directory and Microsoft Entra ID
-- Explained how identities exist across both environments and how they are represented in the cloud
+## Hybrid Environment Fundamentals
+- Demonstrated understanding of hybrid environments integrating on-prem Active Directory and Microsoft Entra ID  
+- Explained how systems interact across on-prem and cloud environments and how objects are represented in the cloud  
 
-## Identity Comparison (AD vs Entra)
-- Validated user identity across Active Directory and Entra Admin Center
-- Compared object attributes to confirm consistency and identify differences
+## System and Identity Validation (AD vs Entra)
+- Validated user objects across Active Directory and the Entra Admin Center  
+- Compared object attributes to confirm consistency and identify differences between environments  
 
 ## User Principal Name (UPN) Troubleshooting
-- Identified and documented UPN mismatches between on-prem and cloud environments
-- Explained how UPN differences impact user sign-in experience
-- Connected UPN behavior to tenant domain and identity design
+- Identified and documented UPN mismatches between on-prem and cloud environments  
+- Evaluated how UPN differences impact user sign-in behavior  
+- Connected UPN format to tenant domain configuration and identity design  
 
-## Source of Authority (Hybrid Identity)
-- Determined whether identities were managed on-prem or in Entra
-- Differentiated between synced users and cloud-only users
-- Identified correct management location based on identity type
+## Management Boundary and Source of Authority
+- Determined whether objects were managed on-prem or in Microsoft Entra  
+- Differentiated between synchronized users and cloud-only users  
+- Identified correct management location based on system ownership  
 
-## Device Identity Validation
-- Used dsregcmd /status to verify device identity state
-- Interpreted DomainJoined and AzureAdJoined values
-- Determined whether a device was on-prem, Entra joined, or hybrid joined
+## Device State Validation
+- Used "dsregcmd /status" to verify device identity and join state  
+- Interpreted DomainJoined and AzureAdJoined values  
+- Determined whether a device was domain joined, Entra joined, or operating in a hybrid configuration  
 
 ## Active Directory PowerShell Usage
-- Used Get-ADUser cmdlet to retrieve and validate user identity attributes
-- Confirmed identity details directly from on-prem Active Directory
+- Used the "Get-ADUser" cmdlet to retrieve and validate user attributes  
+- Confirmed identity details directly from on-prem Active Directory  
 
-## Hybrid Identity Troubleshooting
-- Investigated identity mismatches across AD and Entra
-- Identified root causes related to UPN differences and source of authority
-- Applied structured troubleshooting methodology to real lab scenarios
+## Cross-Environment Troubleshooting
+- Investigated inconsistencies between Active Directory and Microsoft Entra  
+- Identified root causes related to attribute differences and management boundaries  
+- Applied structured troubleshooting methodology across multiple systems  
 
 ## Documentation and Support Readiness
-- Created structured tickets based on real troubleshooting scenarios
-- Developed reusable runbooks for device and user identity troubleshooting
-- Documented findings using an evidence-first workflow aligned with IT support practices
+- Created structured tickets based on real troubleshooting scenarios  
+- Developed reusable runbooks for device and user-related issues  
+- Documented findings using an evidence-first workflow aligned with IT support practices  
